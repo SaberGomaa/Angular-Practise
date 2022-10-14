@@ -5,11 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent{
+  name:string = 'saber';
+  age = 11;
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  lang : Array<string> = ['arbaic','english','german'];
 
 }

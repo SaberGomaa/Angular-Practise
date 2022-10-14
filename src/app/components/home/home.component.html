@@ -1,1 +1,6 @@
-<p class="text-center">home</p>
+<h1>Name : {{name}}</h1>
+<h3>Age :{{age}}</h3>
+<label>Languages</label>
+<ul >
+    <li *ngFor="let a of lang; " >{{ a }}</li>
+  </ul>
