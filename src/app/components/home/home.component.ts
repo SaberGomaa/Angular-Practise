@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from 'src/app/Interfaces/IProduct';
-
+import { IProduct } from 'src/app/Models/IProduct';
+import {Discount} from 'src/app/Models/EDiscount'
 
 @Component({
   selector: 'home',
@@ -19,6 +19,9 @@ export class HomeComponent{
     {Id : 3 , Name : 'p3' , Price : 20 ,Quantity : 5},
 
   ]
+
+  public count = Discount.NoDiscount ;
+
 
   userTestStatus = [
     { "id": 0, "name": "Available" },
