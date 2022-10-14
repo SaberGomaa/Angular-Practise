@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 
-@Component({  
+@Component({
   selector: 'root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'itiProject Name';
+   name = "saber"
 }
+
+
