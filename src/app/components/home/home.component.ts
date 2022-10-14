@@ -9,6 +9,12 @@ export class HomeComponent{
   name:string = 'saber';
   age = 11;
 
-  lang : Array<string> = ['arbaic','english','german'];
+  lang = ['arbaic','english','german'];
+
+  userTestStatus = [
+    { "id": 0, "name": "Available" },
+    { "id": 1, "name": "Ready" },
+    { "id": 2, "name": "Started" }
+];
 
 }
