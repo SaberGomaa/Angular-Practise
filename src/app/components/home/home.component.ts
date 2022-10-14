@@ -19,7 +19,10 @@ export class HomeComponent{
   age = 11;
 
   product : IProduct[] =[
-    {Id : 1 , Name : 'meet' , Price : 20 ,Quantity : 5},
+    {Id : 1 , Name : 'p1' , Price : 20 ,Quantity : 5},
+    {Id : 2 , Name : 'p2' , Price : 20 ,Quantity : 5},
+    {Id : 3 , Name : 'p3' , Price : 20 ,Quantity : 5},
+
   ]
 
   lang = ['arbaic','english','german'];
