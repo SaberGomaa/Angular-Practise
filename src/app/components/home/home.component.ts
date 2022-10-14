@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IProduct } from 'src/app/Interfaces/IProduct';
 
-export interface IProduct {
-  Id:number
-  Name : string
-  Quantity : number
-  Price : number
-}
 
 @Component({
   selector: 'home',
@@ -24,8 +19,6 @@ export class HomeComponent{
     {Id : 3 , Name : 'p3' , Price : 20 ,Quantity : 5},
 
   ]
-
-  lang = ['arbaic','english','german'];
 
   userTestStatus = [
     { "id": 0, "name": "Available" },
