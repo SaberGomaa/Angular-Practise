@@ -24,7 +24,7 @@
         <ng-container *ngFor="let i of proList ; let count = index ; TrackBy : productTrackBy ">
             <!-- Can't  -->
             <!-- <tr *ngIf="i.Quantity > 0"> -->
-            <tr >
+            <tr [ngStyle]="{'background-color' :i.Quantity==0? 'red' : '' , 'color' :i.Quantity==0? 'white' : '' }">
                 <td>{{count+1}}</td>
                 <td>{{i.Name}}</td>
                 <td>{{i.Price}}</td>
