@@ -18,18 +18,28 @@
             <th scope="col">Image</th>
         </tr>
     </thead>
-    <tbody *ngFor="let i of proList ; let count = index ; TrackBy : productTrackBy ">
+    <tbody>
+        <!-- *ngFor , *ngIf & [ngSwitch] are Structured Directive -->
         <!-- <tr  [class.bg-warning]="i.Quantity===0" [style.background-color]="(i.Quantity >20) ? '#eee' : '' "> -->
-        <tr  [class.bg-warning]="i.Quantity===0" [style.background-color]="(i.Quantity >20) ? '#eee' : '' "> <!-- Can't  -->
-            <td>{{count+1}}</td>
-            <td>{{i.Name}}</td>
-            <td>{{i.Price}}</td>
-            <td>
-                <!-- <div *ngIf="i.Quantity == 0">Out of Stock</div> -->
-                <div *ngIf="i.Quantity>0 ; else outOfStock">{{i.Quantity}}</div> <!-- ngIf & ng-template -->
-                <ng-template #outOfStock>Out of Stock</ng-template>
-            </td>
-            <td>{{i.categoryId}}</td>
-            <td><img src="{{i.imgUrl}}" alt="img" width="30" height="30"></td>
-        </tr>
+        <ng-container *ngFor="let i of proList ; let count = index ; TrackBy : productTrackBy ">
+            <!-- Can't  -->
+            <!-- <tr *ngIf="i.Quantity > 0"> -->
+            <tr >
+                <td>{{count+1}}</td>
+                <td>{{i.Name}}</td>
+                <td>{{i.Price}}</td>
+                <td>
+                    <ng-container [ngSwitch]="i.Quantity">
+                        <div *ngSwitchCase="0">Out of Stock</div>
+                        <div *ngSwitchCase="1">Last Item</div>
+                        <div *ngSwitchDefault>{{i.Quantity}}</div>
+                    </ng-container>
+                    <!-- <div *ngIf="i.Quantity == 0">Out of Stock</div>
+                    <div *ngIf="i.Quantity>0 ; else outOfStock">{{i.Quantity}}</div> <!-- ngIf & ng-template -->
+                    <!--<ng-template #outOfStock>Out of Stock</ng-template>-->
+                </td>
+                <td>{{i.categoryId}}</td>
+                <td><img src="{{i.imgUrl}}" alt="img" width="30" height="30"></td>
+            </tr>
+        </ng-container>
     </tbody>
