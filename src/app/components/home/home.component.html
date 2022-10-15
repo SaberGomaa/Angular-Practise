@@ -13,3 +13,14 @@
     <li>Discount : {{count}}</li>
 </ul>
 
+<div>
+    <div class="mb-3">
+      <label for="" class="form-label">feedback</label>
+      <!-- [value]="feedContent" one way binding -->
+      <!-- Two way binding [(ngModel)] = "feedContent" -->
+
+      <input type="text" [(ngModel)]="feedContent"
+        class="form-control" name="" id="" placeholder="feedback">
+        <small>Entered Feedback : {{feedContent}}</small>
+    </div>
+</div>

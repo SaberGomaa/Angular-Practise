@@ -9,6 +9,9 @@ import {Discount} from 'src/app/Models/EDiscount'
 })
 export class HomeComponent{
 
+  //feedContent : string = "oneWayBinding" ;// one way binding
+
+  feedContent : string = "oneWayBinding" ;// Two way binding
 
   name:string = 'saber';
   age = 11;
