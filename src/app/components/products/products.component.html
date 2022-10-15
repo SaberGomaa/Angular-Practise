@@ -1,8 +1,30 @@
-<ul *ngFor="let i of proList">
+<!-- <ul *ngFor="let i of proList">
     <li>Id : {{i.Id}}</li>
     <li>Name : {{i.Name}}</li>
     <li>Price : {{i.Price}}</li>
     <li>Quantity : {{i.Quantity}}</li>
     <li>CategoryId : {{i.categoryId}}</li>
-    <li><img src="{{i.imgUrl}}" alt="img"></li>
-</ul>
+    <li><img src="{{i.imgUrl}}" alt="img" width="150" height="150" style="border-radius: 30%"></li>
+</ul> -->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Category Id</th>
+            <th scope="col">Image</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let i of proList">
+        <tr>
+            <td>{{i.Id}}</td>
+            <td>{{i.Name}}</td>
+            <td>{{i.Price}}</td>
+            <td>{{i.Quantity}}</td>
+            <td>{{i.categoryId}}</td>
+            <td><img src="{{i.imgUrl}}" alt="img" width="30" height="30"></td>
+        </tr>
+    </tbody>
