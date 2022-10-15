@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from 'src/app/Models/IProduct';
+import { IProduct } from 'src/app/Models/iproduct';
 import {Discount} from 'src/app/Models/EDiscount'
 
 @Component({
@@ -9,27 +9,16 @@ import {Discount} from 'src/app/Models/EDiscount'
 })
 export class HomeComponent{
 
-  //feedContent : string = "oneWayBinding" ;// one way binding
 
-  feedContent : string = "oneWayBinding" ;// Two way binding
-
+  feedContent : string = "one&TwoWayBinding" ;// one&TwoWayBinding
   name:string = 'saber';
   age = 11;
 
   product : IProduct[] =[
-    {Id : 1 , Name : 'p1' , Price : 20 ,Quantity : 5},
-    {Id : 2 , Name : 'p2' , Price : 20 ,Quantity : 5},
-    {Id : 3 , Name : 'p3' , Price : 20 ,Quantity : 5},
-
+    {Id : 1 , Name : 'p1' , Price : 20 ,Quantity : 5 , categoryId : 1 , imgUrl :""},
+    {Id : 2 , Name : 'p2' , Price : 20 ,Quantity : 5, categoryId : 1 , imgUrl :""}
   ]
 
   public count = Discount.NoDiscount ;
-
-
-  userTestStatus = [
-    { "id": 0, "name": "Available" },
-    { "id": 1, "name": "Ready" },
-    { "id": 2, "name": "Started" }
-];
 
 }

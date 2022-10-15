@@ -1,26 +1,22 @@
-<h1>Name : {{name}}</h1>
-<h3>Age :{{age}}</h3>
-
-<ul>
-    <li *ngFor="let item of userTestStatus">id : {{item.id}} name: {{item.name}}</li>
-</ul>
+<h1>Name : {{ name }}</h1>
+<h3>Age :{{ age }}</h3>
 
 <ul *ngFor="let item of product">
-    <li >ID : {{item.Id}}</li>
-    <li >Name : {{item.Name}}</li>
-    <li >Quantity : {{item.Quantity}}</li>
-    <li >Price : {{item.Price}}</li>
-    <li>Discount : {{count}}</li>
+    <li>ID : {{ item.Id }}</li>
+    <li>Name : {{ item.Name }}</li>
+    <li>Quantity : {{ item.Quantity }}</li>
+    <li>Price : {{ item.Price }}</li>
+    <li>Discount : {{ count }}</li>
 </ul>
 
 <div>
     <div class="mb-3">
-      <label for="" class="form-label">feedback</label>
-      <!-- [value]="feedContent" one way binding -->
-      <!-- Two way binding [(ngModel)] = "feedContent" -->
+        <label for="" class="form-label">feedback</label>
+        <!-- [value]="feedContent" one way binding -->
+        <!-- Two way binding [(ngModel)] ="feedContent" -->
 
-      <input type="text" [(ngModel)]="feedContent"
-        class="form-control" name="" id="" placeholder="feedback">
-        <small>Entered Feedback : {{feedContent}}</small>
+        <input type="text" [(ngModel)]="feedContent" class="form-control" name="" id="" placeholder="feedback" />
+        <small>Entered Feedback : {{ feedContent }}</small>
     </div>
 </div>
+<!-- <h1>{{count}}</h1> -->
