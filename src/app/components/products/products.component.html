@@ -19,7 +19,7 @@
         </tr>
     </thead>
     <tbody *ngFor="let i of proList">
-        <tr>
+        <tr [class.bg-warning]="i.Quantity===0" [style.background-color]="(i.Quantity >20) ? '#eee' : '' ">
             <td>{{i.Id}}</td>
             <td>{{i.Name}}</td>
             <td>{{i.Price}}</td>
