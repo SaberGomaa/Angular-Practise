@@ -10,7 +10,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">ID</th>
+            <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Price</th>
             <th scope="col">Quantity</th>
@@ -18,12 +18,17 @@
             <th scope="col">Image</th>
         </tr>
     </thead>
-    <tbody *ngFor="let i of proList">
-        <tr [class.bg-warning]="i.Quantity===0" [style.background-color]="(i.Quantity >20) ? '#eee' : '' ">
-            <td>{{i.Id}}</td>
+    <tbody *ngFor="let i of proList ; let count = index ; TrackBy : productTrackBy ">
+        <!-- <tr  [class.bg-warning]="i.Quantity===0" [style.background-color]="(i.Quantity >20) ? '#eee' : '' "> -->
+        <tr  [class.bg-warning]="i.Quantity===0" [style.background-color]="(i.Quantity >20) ? '#eee' : '' "> <!-- Can't  -->
+            <td>{{count+1}}</td>
             <td>{{i.Name}}</td>
             <td>{{i.Price}}</td>
-            <td>{{i.Quantity}}</td>
+            <td>
+                <!-- <div *ngIf="i.Quantity == 0">Out of Stock</div> -->
+                <div *ngIf="i.Quantity>0 ; else outOfStock">{{i.Quantity}}</div> <!-- ngIf & ng-template -->
+                <ng-template #outOfStock>Out of Stock</ng-template>
+            </td>
             <td>{{i.categoryId}}</td>
             <td><img src="{{i.imgUrl}}" alt="img" width="30" height="30"></td>
         </tr>

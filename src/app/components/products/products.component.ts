@@ -8,6 +8,9 @@ import { IProduct } from 'src/app/Models/iproduct';
 })
 export class ProductsComponent implements OnInit {
 
+  productTrackBy(index : number , item : IProduct) {
+    return item.Id;
+  }
 
   proList : IProduct[] ;
 
