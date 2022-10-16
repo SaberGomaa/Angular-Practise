@@ -9,7 +9,7 @@
 
 <table class="table">
     <thead>
-        <tr>
+        <tr class="text-center">
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Price $</th>
@@ -17,6 +17,8 @@
             <th scope="col">Quantity</th>
             <th scope="col">Category Id</th>
             <th scope="col">Image</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Add To Cart</th>
         </tr>
     </thead>
     <tbody>
@@ -25,7 +27,7 @@
         <ng-container *ngFor="let i of proList ; let count = index ; TrackBy : productTrackBy ">
             <!-- Can't  -->
             <!-- <tr *ngIf="i.Quantity > 0"> -->
-            <tr [ngStyle]="{'background-color' :i.Quantity==0? 'red' : '' , 'color' :i.Quantity==0? 'white' : '' }">
+            <tr class="text-center" [ngStyle]="{'background-color' :i.Quantity==0? 'red' : '' , 'color' :i.Quantity==0? 'white' : '' }">
                 <td>{{count+1}}</td>
                 <td>{{i.Name}}</td>
                 <td>{{i.Price | currency : 'USD'}}</td> <!-- pipes -->
@@ -43,10 +45,12 @@
                 <td>{{i.categoryId}}</td>
                 <!-- <td><img LightBox highLightColor="blue" src="{{i.imgUrl}}" alt="img" width="30" height="30"></td> -->
                 <td><img LightBox="blue" defaultColor="white" src="{{i.imgUrl}}" alt="img" width="30" height="30"></td>
-
+                <td><input #buyAmount type="number" value="1" min="1" max="{{i.Quantity}}" class="form-control"/></td> <!-- use template variable -->
+                <td><button class="btn btn-secondary" (click)="updateOrderTotalPrice(+buyAmount.value, i.Price)">Add To Cart</button></td>
             </tr>
         </ng-container>
     </tbody>
 
+    <h1> TotalPrice {{orderTotalPrice}}</h1>
 
     <!-- <h1>Time Now : {{dateNow | date :'mediumTime'}}</h1> -->

@@ -10,10 +10,15 @@ export class OrderMasterComponent implements OnInit {
 
   catList: ICategory[];
 
+  selectedCatId : number = 0 ;
+  RecivedTotalPrice : number = 0 ;
+
+
   constructor() {
     this.catList = [
       { Id: 1, name: 'Labtobs' },
       { Id: 2, name: 'Mobiles' },
+      { Id: 3, name: 'TVs' }
     ];
   }
 

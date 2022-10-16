@@ -1,9 +1,8 @@
 <h1>New Order</h1>
 
 <div class="mb-3">
-    <label for="" class="form-label">Select Category</label>
-    <select class="form-select form-select-lg" name="cat" id="catSel">
-        <option selected value="0">Select Category</option>
+    <select class="form-select form-select-lg" name="cat" id="catSel" [(ngModel)]="selectedCatId">
+        <option selected disabled value="0">Select Category</option>
         <option *ngFor="let cat of catList" [value]="cat.Id">{{cat.name}}</option>
     </select>
 </div>
@@ -12,6 +11,6 @@
     <products></products>
     <hr />
     <h2>
-        Order Total Price :
+        Order Total Price : {{RecivedTotalPrice | currency}}
     </h2>
 </div>
