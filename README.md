@@ -1,5 +1,4 @@
-git# ItiProject
-
+git# Angular practise
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
 
 ## Development server
