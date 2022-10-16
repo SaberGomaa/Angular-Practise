@@ -13,10 +13,12 @@ export class LightBoxDirective {
 
   @Input('LightBox') highLightColor : string ="red" ;
 
+  @Input() defaultColor : string ="black" ;
+
 
   constructor(private elemRef: ElementRef) {
     // this.elemRef = elemRef;
-    elemRef.nativeElement.style.border = "1px solid black ";
+    elemRef.nativeElement.style.border = `1px solid ${this.defaultColor} `;
 
   }
   //method decorator
