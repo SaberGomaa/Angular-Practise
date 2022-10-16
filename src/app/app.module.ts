@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ProductsComponent } from './components/products/products.component';
+import { LightBoxDirective } from './Directives/light-box.directive';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ProductsComponent } from './components/products/products.component';
     FooterComponent,
     NavigationComponent,
     ProductsComponent,
+    LightBoxDirective,
   ],
   imports: [
     BrowserModule,
