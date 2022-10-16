@@ -2,13 +2,13 @@
 
 <div class="mb-3">
     <select class="form-select form-select-lg" name="cat" id="catSel" [(ngModel)]="selectedCatId">
-        <option selected disabled value="0">Select Category</option>
+        <option selected     value="0">Select Category</option>
         <option *ngFor="let cat of catList" [value]="cat.Id">{{cat.name}}</option>
     </select>
 </div>
 <hr />
 <div>
-    <products></products>
+    <products [recivedSelCatId]="selectedCatId" (onTotalPriceChange)="updateTotalPrice($event)"></products>
     <hr />
     <h2>
         Order Total Price : {{RecivedTotalPrice | currency}}
