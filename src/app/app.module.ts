@@ -13,6 +13,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ProductsComponent } from './components/products/products.component';
 import { LightBoxDirective } from './Directives/light-box.directive';
 import { USDtoEGPPipe } from './Pipes/usdto-egp.pipe';
+import { OrderMasterComponent } from './components/order-master/order-master.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { USDtoEGPPipe } from './Pipes/usdto-egp.pipe';
     ProductsComponent,
     LightBoxDirective,
     USDtoEGPPipe,
+    OrderMasterComponent,
   ],
   imports: [
     BrowserModule,

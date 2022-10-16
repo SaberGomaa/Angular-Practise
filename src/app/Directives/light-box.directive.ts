@@ -18,12 +18,12 @@ export class LightBoxDirective implements OnChanges{
 
   constructor(private elemRef: ElementRef) {
     // this.elemRef = elemRef;
-    elemRef.nativeElement.style.border = `1px solid ${this.defaultColor}`;
-
   }
+
   ngOnChanges(changes: SimpleChanges): void {
     this.elemRef.nativeElement.style.border = `1px solid ${this.defaultColor}`;
   }
+  
   //method decorator
   @HostListener('mouseout') onMouseOut() {
     this.elemRef.nativeElement.style.border = `1px solid ${this.defaultColor}`;
