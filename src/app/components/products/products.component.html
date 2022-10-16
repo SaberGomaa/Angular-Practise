@@ -12,7 +12,8 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
-            <th scope="col">Price</th>
+            <th scope="col">Price $</th>
+            <th scope="col">Price EGP</th>
             <th scope="col">Quantity</th>
             <th scope="col">Category Id</th>
             <th scope="col">Image</th>
@@ -27,7 +28,8 @@
             <tr [ngStyle]="{'background-color' :i.Quantity==0? 'red' : '' , 'color' :i.Quantity==0? 'white' : '' }">
                 <td>{{count+1}}</td>
                 <td>{{i.Name}}</td>
-                <td>{{i.Price}}</td>
+                <td>{{i.Price | currency : 'USD'}}</td> <!-- pipes -->
+                <td>{{i.Price | uSDtoEGP : 20 | currency :'EGP '}}</td> <!-- pipes -->
                 <td>
                     <ng-container [ngSwitch]="i.Quantity">
                         <div *ngSwitchCase="0">Out of Stock</div>
@@ -45,3 +47,6 @@
             </tr>
         </ng-container>
     </tbody>
+
+
+    <h1>Time Now : {{dateNow | date :'mediumTime'}}</h1>

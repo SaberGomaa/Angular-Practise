@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ProductsComponent } from './components/products/products.component';
 import { LightBoxDirective } from './Directives/light-box.directive';
+import { USDtoEGPPipe } from './Pipes/usdto-egp.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { LightBoxDirective } from './Directives/light-box.directive';
     NavigationComponent,
     ProductsComponent,
     LightBoxDirective,
+    USDtoEGPPipe,
   ],
   imports: [
     BrowserModule,
