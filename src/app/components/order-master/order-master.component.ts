@@ -18,8 +18,10 @@ export class OrderMasterComponent implements OnInit {
   // @ViewChild('clientName') clientNameInp? : ElementRef ;
 
   // If sure that Obj Not null ...
-  @ViewChild('clientName') clientNameInp : ElementRef = {} as ElementRef;
   // @ViewChild('clientName') clientNameInp : ElementRef = {} as ElementRef;
+
+  //Non-null assertion operator
+  @ViewChild('clientName') clientNameInp! : ElementRef ; // tell Compiler that Obj will never = null  
 
 
 
