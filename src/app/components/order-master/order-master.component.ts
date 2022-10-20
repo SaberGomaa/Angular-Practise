@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { ICategory } from './../../Models/icategory';
 
 @Component({
@@ -13,6 +13,7 @@ export class OrderMasterComponent implements OnInit {
   selectedCatId : number = 0 ;
   RecivedTotalPrice : number = 0 ;
 
+  @ViewChild('clientName') clientNameInp : ElementRef ;
 
   constructor() {
     this.catList = [
