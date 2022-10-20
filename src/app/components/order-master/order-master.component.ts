@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { ICategory } from './../../Models/icategory';
 
 @Component({
@@ -6,7 +6,7 @@ import { ICategory } from './../../Models/icategory';
   templateUrl: './order-master.component.html',
   styleUrls: ['./order-master.component.scss']
 })
-export class OrderMasterComponent implements OnInit {
+export class OrderMasterComponent implements OnInit , AfterViewInit{
 
   catList: ICategory[];
 
@@ -33,7 +33,11 @@ export class OrderMasterComponent implements OnInit {
     ];
     //  this.clientNameInp?.nativeElement // Must Allow null if used null or undefined '?'
 
-    this.clientNameInp.nativeElement 
+    // this.clientNameInp.nativeElement   
+  }
+  ngAfterViewInit(): void {
+    this.clientNameInp.nativeElement.style.backgroundColor = '#ebf';
+    this.clientNameInp.nativeElement.value = 'Name';
   }
 
   updateTotalPrice(totalPrice : number){
