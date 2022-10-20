@@ -13,7 +13,7 @@ export class OrderMasterComponent implements OnInit {
   selectedCatId : number = 0 ;
   RecivedTotalPrice : number = 0 ;
 
-  @ViewChild('clientName') clientNameInp : ElementRef ;
+  @ViewChild('clientName') clientNameInp : ElementRef | null = null;
 
   constructor() {
     this.catList = [
@@ -21,6 +21,8 @@ export class OrderMasterComponent implements OnInit {
       { Id: 2, name: 'Mobiles' },
       { Id: 3, name: 'TVs' }
     ];
+
+
   }
 
   updateTotalPrice(totalPrice : number){
