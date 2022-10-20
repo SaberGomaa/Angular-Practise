@@ -1,12 +1,14 @@
 import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { ICategory } from './../../Models/icategory';
+import { ProductsComponent } from './../products/products.component';
 
 @Component({
   selector: 'order-master',
   templateUrl: './order-master.component.html',
   styleUrls: ['./order-master.component.scss']
 })
-export class OrderMasterComponent implements OnInit , AfterViewInit{
+
+export class OrderMasterComponent implements OnInit , AfterViewInit {
 
   catList: ICategory[];
 
@@ -24,6 +26,9 @@ export class OrderMasterComponent implements OnInit , AfterViewInit{
   @ViewChild('clientName') clientNameInp! : ElementRef ; // tell Compiler that Obj will never = null  
 
 
+  ///
+  @ViewChild(ProductsComponent) PrdCom! : ProductsComponent ;
+
 
   constructor() {
     this.catList = [
@@ -37,7 +42,10 @@ export class OrderMasterComponent implements OnInit , AfterViewInit{
   }
   ngAfterViewInit(): void {
     this.clientNameInp.nativeElement.style.backgroundColor = '#ebf';
-    this.clientNameInp.nativeElement.value = 'Name';
+    this.clientNameInp.nativeElement.value = 'Your Name';
+
+    console.log(this.PrdCom.proList.find(e=>e.Id === 1));
+
   }
 
   updateTotalPrice(totalPrice : number){
