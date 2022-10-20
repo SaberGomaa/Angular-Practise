@@ -13,7 +13,9 @@ export class OrderMasterComponent implements OnInit {
   selectedCatId : number = 0 ;
   RecivedTotalPrice : number = 0 ;
 
-  @ViewChild('clientName') clientNameInp : ElementRef | null = null;
+  // @ViewChild('clientName') clientNameInp : ElementRef | null = null;
+  @ViewChild('clientName') clientNameInp : ElementRef | undefined = undefined;
+
 
   constructor() {
     this.catList = [
