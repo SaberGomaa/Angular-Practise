@@ -44,7 +44,7 @@ export class OrderMasterComponent implements OnInit , AfterViewInit {
     this.clientNameInp.nativeElement.style.backgroundColor = '#ebf';
     this.clientNameInp.nativeElement.value = 'Your Name';
 
-    console.log(this.PrdCom.proList.find(e=>e.Id === 1));
+    console.log(this.PrdCom.proList;
 
   }
 
