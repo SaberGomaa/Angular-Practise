@@ -44,8 +44,6 @@ export class OrderMasterComponent implements OnInit , AfterViewInit {
     this.clientNameInp.nativeElement.style.backgroundColor = '#ebf';
     this.clientNameInp.nativeElement.value = 'Your Name';
 
-    console.log(this.PrdCom.proList);
-
   }
 
   updateTotalPrice(totalPrice : number){
@@ -53,6 +51,7 @@ export class OrderMasterComponent implements OnInit , AfterViewInit {
   }
 
   ngOnInit(): void {
+    console.log(this.catList);
   }
 
 }
