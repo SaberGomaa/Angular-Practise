@@ -1,23 +1,4 @@
-<!-- interpolation -->
-
-<!-- <h1 class="red">{{name}}</h1> -->
-
-<div class="container-fluid vh-100">
-  <div class="row">
-    <header style="background-color: rgb(184, 167, 167)"></header>
-    <navigation style="background-color: rgb(103, 102, 102)"></navigation>
-  </div>
-  <div class="row">
-    <sidebar class="col-2" style="background-color: rgb(170, 156, 156)">
-    </sidebar>
-    <!-- <home class="col-10" style="background-color: rgb(203, 189, 189)"></home> -->
-    <!-- <products class="col-10" style="background-color: rgb(203, 189, 189)"></products> -->
-    <!-- <order-master class="col-10" style="background-color: rgb(203, 189, 189)"></order-master> -->
-    <div class="col-10" style="background-color: rgb(203, 189, 189)">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-  <div class="row">
-    <footer style="background-color: rgb(117, 117, 117)"></footer>
-  </div>
+<header style="background-color: rgb(184, 167, 167)"></header>
+<div class="container">
+    <router-outlet></router-outlet>
 </div>

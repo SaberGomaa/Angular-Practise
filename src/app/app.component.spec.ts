@@ -9,7 +9,7 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
       ],
     }).compileComponents();
   });
@@ -23,7 +23,7 @@ describe('AppComponent', () => {
   it(`should have as title 'itiProject'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('itiProject');
+    expect(app.name).toEqual('itiProject');
   });
 
   it('should render title', () => {

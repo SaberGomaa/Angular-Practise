@@ -4,12 +4,13 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
 import { OrderMasterComponent } from './components/order-master/order-master.component';
 import { NotFoundComponent } from './components/NotFound/NotFound.component';
-
+import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 const routes: Routes = [
   // First Match wins strategy
   //Default path
-  { path: '', redirectTo: '/Home', pathMatch: 'full' },
+  { path: '', redirectTo: '/Main', pathMatch: 'full' },
   { path: 'Home', component: HomeComponent },
+  { path: 'Main', component: MainLayoutComponent },
   { path: 'Products', component: ProductsComponent },
   { path: 'Order', component: OrderMasterComponent },
 

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -14,7 +13,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { LightBoxDirective } from './Directives/light-box.directive';
 import { USDtoEGPPipe } from './Pipes/usdto-egp.pipe';
 import { OrderMasterComponent } from './components/order-master/order-master.component';
-
+import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,9 +26,10 @@ import { OrderMasterComponent } from './components/order-master/order-master.com
     LightBoxDirective,
     USDtoEGPPipe,
     OrderMasterComponent,
+    MainLayoutComponent,
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
