@@ -47,7 +47,8 @@
                 <!-- <td><img LightBox highLightColor="blue" src="{{i.imgUrl}}" alt="img" width="30" height="30"></td> -->
                 <td><img LightBox="blue" defaultColor="white" src="{{i.imgUrl}}" alt="img" width="30" height="30"></td>
                 <td><input #buyAmount type="number" value="1" min="1" max="{{i.Quantity}}" class="form-control"/></td> <!-- use template variable -->
-                <td><button class="btn btn-info" (click)="openProductDetails(i.Id)">Details</button></td>
+                <!-- <td><button class="btn btn-info" (click)="openProductDetails(i.Id)">Details</button></td> -->
+                <td><a class="btn btn-primary" [routerLink]="['/Products' , i.Id]" role="button">Details</a></td>
                 <td><button class="btn btn-secondary" (click)="updateOrderTotalPrice(+buyAmount.value, i.Price)">Add To Cart</button></td>
             </tr>
         </ng-container>

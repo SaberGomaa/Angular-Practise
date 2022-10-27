@@ -46,7 +46,7 @@ export class ProductsComponent implements OnInit, OnChanges {
   }
 
   openProductDetails(Id: number) {
-    this.router.navigate(['/Product' , Id]);
+    this.router.navigate(['/Products' , Id]);
   }
 
 }
