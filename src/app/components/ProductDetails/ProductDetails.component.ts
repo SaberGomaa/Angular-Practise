@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from './../../Models/iproduct';
 import { ProductsService } from './../products.service';
 
@@ -11,22 +11,45 @@ import { ProductsService } from './../products.service';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  // private productId: number = 0;
+  private currId: number = 0;
 
-  prd: IProduct | undefined= undefined;
+  private prdIDs : number [] = [] ;
 
-  constructor(private activatedRoute: ActivatedRoute , 
-    private productService : ProductsService ,
-    private location : Location) { }
+  currPrd: IProduct | undefined = undefined;
+  prePrd: IProduct | undefined = undefined;
+  nextPrd: IProduct | undefined = undefined;
+
+  constructor(private activatedRoute: ActivatedRoute,
+    private productService: ProductsService,
+    private location: Location,
+    private router : Router) { }
 
   ngOnInit() {
-    // this.productId = Number(this.activatedRoute.snapshot.paramMap.get("ProductId"));
-    this.prd = this.productService.getProductById(Number(this.activatedRoute.snapshot.paramMap.get("ProductId")));
-    // alert(this.productId);
+    this.prdIDs = this.productService.getAllProducsIDs();
+    this.currId = Number(this.activatedRoute.snapshot.paramMap.get("ProductId"));
+    this.currPrd = this.productService.getProductById(this.currId);
+
   }
 
-  goBack(){
+  goBack() {
     this.location.back();
+  }
+
+  preProduct() {
+    let currIndex = this.prdIDs.findIndex((val) => val == this.currId);
+    if(currIndex != 0){
+      this.currId = this.prdIDs[currIndex-1] ;
+      this.router.navigate(['/Products' , this.currId])
+    }
+  } 
+
+  nextProduct() {
+    let currIndex = this.prdIDs.findIndex((val) => val == this.currId);
+    if(currIndex < this.prdIDs.length-1){
+      this.currId = this.prdIDs[currIndex+1] ;
+      this.router.navigate(['/Products' , this.currId])
+      
+    }
   }
 
 }
