@@ -26,8 +26,14 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.prdIDs = this.productService.getAllProducsIDs();
-    this.currId = Number(this.activatedRoute.snapshot.paramMap.get("ProductId"));
-    this.currPrd = this.productService.getProductById(this.currId);
+    // this.currId = Number(this.activatedRoute.snapshot.paramMap.get("ProductId"));
+    // this.currPrd = this.productService.getProductById(this.currId);
+
+    //observable
+    this.activatedRoute.paramMap.subscribe(paramMap =>{
+      this.currId = Number(paramMap.get("ProductId"));
+      this.currPrd = this.productService.getProductById(this.currId);
+    })
 
   }
 
