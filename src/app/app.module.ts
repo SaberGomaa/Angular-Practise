@@ -14,6 +14,8 @@ import { LightBoxDirective } from './Directives/light-box.directive';
 import { USDtoEGPPipe } from './Pipes/usdto-egp.pipe';
 import { OrderMasterComponent } from './components/order-master/order-master.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { ProductDetailsComponent } from './components/ProductDetails/ProductDetails.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,9 +29,10 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
     USDtoEGPPipe,
     OrderMasterComponent,
     MainLayoutComponent,
+    ProductDetailsComponent
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     FormsModule
   ],

@@ -18,6 +18,7 @@
             <th scope="col">Category Id</th>
             <th scope="col">Image</th>
             <th scope="col">Amount</th>
+            <th scope="col">Details</th>
             <th scope="col">Add To Cart</th>
         </tr>
     </thead>
@@ -46,6 +47,7 @@
                 <!-- <td><img LightBox highLightColor="blue" src="{{i.imgUrl}}" alt="img" width="30" height="30"></td> -->
                 <td><img LightBox="blue" defaultColor="white" src="{{i.imgUrl}}" alt="img" width="30" height="30"></td>
                 <td><input #buyAmount type="number" value="1" min="1" max="{{i.Quantity}}" class="form-control"/></td> <!-- use template variable -->
+                <td><button class="btn btn-info" (click)="openProductDetails(i.Id)">Details</button></td>
                 <td><button class="btn btn-secondary" (click)="updateOrderTotalPrice(+buyAmount.value, i.Price)">Add To Cart</button></td>
             </tr>
         </ng-container>
