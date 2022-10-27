@@ -1,4 +1,8 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { IProduct } from './../../Models/iproduct';
+import { ProductsService } from './../products.service';
 
 @Component({
   selector: 'app-ProductDetails',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  constructor() { }
+  // private productId: number = 0;
+
+  prd: IProduct | undefined= undefined;
+
+  constructor(private activatedRoute: ActivatedRoute , 
+    private productService : ProductsService ,
+    private location : Location) { }
 
   ngOnInit() {
+    // this.productId = Number(this.activatedRoute.snapshot.paramMap.get("ProductId"));
+    this.prd = this.productService.getProductById(Number(this.activatedRoute.snapshot.paramMap.get("ProductId")));
+    // alert(this.productId);
+  }
+
+  goBack(){
+    this.location.back();
   }
 
 }

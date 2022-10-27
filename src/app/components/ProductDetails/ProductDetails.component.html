@@ -1,3 +1,14 @@
-<p>
-  ProductDetails works!
-</p>
+<div class="row">
+  <div class="col-12 text-center">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Product Name : {{prd?.Name}}</h3>
+        <p class="card-text">Price : {{prd?.Price}}</p>
+        <p class="card-text">Quantity : {{prd?.Quantity}}</p>
+        <img class="card-text mb-5" src="{{prd?.imgUrl}}" width="200" height="200" /><br/>
+        <button class="btn btn-info" (click)="goBack()" >Back</button>
+        <!-- <a  class="btn btn-primary" [routerLink]="['/Products']" role="button">Back</a> -->
+      </div>
+    </div>
+  </div>
+</div>
