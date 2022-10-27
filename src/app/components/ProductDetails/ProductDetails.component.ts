@@ -16,8 +16,6 @@ export class ProductDetailsComponent implements OnInit {
   private prdIDs : number [] = [] ;
 
   currPrd: IProduct | undefined = undefined;
-  prePrd: IProduct | undefined = undefined;
-  nextPrd: IProduct | undefined = undefined;
 
   constructor(private activatedRoute: ActivatedRoute,
     private productService: ProductsService,
@@ -58,4 +56,10 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
 
+  isFirstProduct() : boolean{
+    return this.currId == this.prdIDs[0];
+  }
+  isLastProduct() : boolean{
+    return this.currId == this.prdIDs[this.prdIDs.length-1];
+  }
 }

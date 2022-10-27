@@ -7,9 +7,9 @@
         <p class="card-text">Quantity : {{currPrd?.Quantity}}</p>
         <img class="card-text mb-5" src="{{currPrd?.imgUrl}}" width="200" height="200" /><br/>
         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-          <button type="button" class="btn btn-success" (click)="preProduct()">Previous</button>
+          <button type="button" class="btn btn-success" (click)="preProduct()" [disabled]="isFirstProduct()">Previous</button>
           <button type="button" class="btn btn-info" (click)="goBack()">Back</button>
-          <button type="button" class="btn btn-success" (click)="nextProduct()">Next</button>
+          <button type="button" class="btn btn-success" (click)="nextProduct()"  [disabled]="isLastProduct()">Next</button>
         </div>
         <!-- <button class="btn btn-info" (click)="goBack()" >Back</button> -->
         <!-- <a  class="btn btn-primary" [routerLink]="['/Products']" role="button">Back</a> -->
