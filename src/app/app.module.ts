@@ -16,6 +16,7 @@ import { USDtoEGPPipe } from './Pipes/usdto-egp.pipe';
 import { OrderMasterComponent } from './components/order-master/order-master.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { ProductDetailsComponent } from './components/ProductDetails/ProductDetails.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { ProductDetailsComponent } from './components/ProductDetails/ProductDeta
     OrderMasterComponent,
     MainLayoutComponent,
     ProductDetailsComponent,
+    AddProductComponent,
     
   ],
   imports: [

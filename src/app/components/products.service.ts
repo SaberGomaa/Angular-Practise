@@ -40,8 +40,8 @@ export class ProductsService {
         this.proList.push(Product);
     }
 
-    getAllProducsIDs(): number[] {
-        return this.proList.map(p => p.id);
-    }
+    // getAllProducsIDs(): number[] {
+    //     return this.proList.map(p => p.id);
+    // }
 
 }

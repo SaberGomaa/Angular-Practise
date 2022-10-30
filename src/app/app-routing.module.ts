@@ -6,6 +6,7 @@ import { OrderMasterComponent } from './components/order-master/order-master.com
 import { NotFoundComponent } from './components/NotFound/NotFound.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { ProductDetailsComponent } from './components/ProductDetails/ProductDetails.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,8 @@ const routes: Routes = [
       //Default path
       { path: '', redirectTo: '/Home', pathMatch: 'full' },
       { path: 'Home', component: HomeComponent },
+      { path: 'AddProduct', component: AddProductComponent },
+      { path: 'EditProduct/:Id', component: AddProductComponent },
       { path: 'Products', component: ProductsComponent },
       { path: 'Products/:Id', component: ProductDetailsComponent },
       { path: 'Order', component: OrderMasterComponent },
@@ -30,6 +33,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+exports: [RouterModule]
 })
 export class AppRoutingModule { }
