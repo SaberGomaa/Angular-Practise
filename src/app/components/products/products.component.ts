@@ -20,7 +20,7 @@ export class ProductsComponent implements OnInit, OnChanges {
   //proList: IProduct[];
   proListOfCat: IProduct[] = [];
 
-  prdList : IProduct [] = [] ;
+  prdList: IProduct[] = [];
 
   @Output() onTotalPriceChange: EventEmitter<number>;
 
@@ -28,8 +28,8 @@ export class ProductsComponent implements OnInit, OnChanges {
 
   orderTotalPrice: number = 0;
 
-  constructor(private ProService: ProductsService , private router : Router , 
-    private  APITestProduct : ProductsAPIService) {
+  constructor(private ProService: ProductsService, private router: Router,
+    private APITestProduct: ProductsAPIService) {
     this.onTotalPriceChange = new EventEmitter<number>();
 
   }
@@ -48,13 +48,20 @@ export class ProductsComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     // this.proListOfCat = this.ProService.getAllProducts();
-    this.APITestProduct.getAllProducts().subscribe((prdList => {
-      this.prdList = prdList ;
-    }));
+
+    // this.APITestProduct.getAllProducts().subscribe((prdList => {
+    //   this.prdList = prdList ;
+    // }));
+
+    this.APITestProduct.getAllProducts().subscribe({
+      next : (data) => {
+        this.prdList = data ;
+      }
+    })
   }
 
   openProductDetails(Id: number) {
-    this.router.navigate(['/Products' , Id]);
+    this.router.navigate(['/Products', Id]);
   }
 
 }
