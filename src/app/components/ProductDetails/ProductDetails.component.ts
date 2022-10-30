@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { IProduct } from './../../Models/iproduct';
 import { ProductsService } from './../products.service';
 
@@ -9,18 +10,18 @@ import { ProductsService } from './../products.service';
   templateUrl: './ProductDetails.component.html',
   styleUrls: ['./ProductDetails.component.css']
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit , OnDestroy{
 
   private currId: number = 0;
-
   private prdIDs : number [] = [] ;
-
+  private subscriptionList : Subscription [] = [] ;
   currPrd: IProduct | undefined = undefined;
 
   constructor(private activatedRoute: ActivatedRoute,
     private productService: ProductsService,
     private location: Location,
     private router : Router) { }
+
 
   ngOnInit() {
     this.prdIDs = this.productService.getAllProducsIDs();
@@ -31,8 +32,22 @@ export class ProductDetailsComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(paramMap =>{
       this.currId = Number(paramMap.get("ProductId"));
       this.currPrd = this.productService.getProductById(this.currId);
-    })
+    });
 
+
+    // let sub = this.activatedRoute.paramMap.subscribe({
+    //   next : (data) => {},
+    //   error : (error) => {},
+    //   complete : () =>{}
+    // }); 
+
+    // this.subscriptionList.push(sub);
+  }
+
+  ngOnDestroy(): void {
+    // this.subscriptionList.forEach(sub => {
+    //   sub.unsubscribe();
+    // });
   }
 
   goBack() {

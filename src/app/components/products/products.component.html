@@ -25,7 +25,7 @@
     <tbody>
         <!-- *ngFor , *ngIf & [ngSwitch] are Structured Directive -->
         <!-- <tr  [class.bg-warning]="i.Quantity===0" [style.background-color]="(i.Quantity >20) ? '#eee' : '' "> -->
-        <ng-container *ngFor="let i of proListOfCat ; let count = index ; TrackBy : productTrackBy ">
+        <ng-container *ngFor="let i of prdList ; let count = index ; TrackBy : productTrackBy ">
             <!-- Can't  -->
             <!-- <tr *ngIf="i.Quantity > 0"> -->
             <tr class="text-center" [ngStyle]="{'background-color' :i.Quantity==0? 'red' : '' , 'color' :i.Quantity==0? 'white' : '' }">

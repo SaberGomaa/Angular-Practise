@@ -2,6 +2,8 @@ import { Component, Input, OnInit, OnChanges, SimpleChanges, EventEmitter, Outpu
 import { Router } from '@angular/router';
 import { IProduct } from 'src/app/Models/iproduct';
 import { ProductsService } from './../products.service';
+import { ProductsAPIService } from './../../services/products-api.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'products',
@@ -18,13 +20,16 @@ export class ProductsComponent implements OnInit, OnChanges {
   //proList: IProduct[];
   proListOfCat: IProduct[] = [];
 
+  prdList : IProduct [] = [] ;
+
   @Output() onTotalPriceChange: EventEmitter<number>;
 
   @Input() recivedSelCatId: number = 0;
 
   orderTotalPrice: number = 0;
 
-  constructor(private ProService: ProductsService , private router : Router) {
+  constructor(private ProService: ProductsService , private router : Router , 
+    private  APITestProduct : ProductsAPIService) {
     this.onTotalPriceChange = new EventEmitter<number>();
 
   }
@@ -42,7 +47,10 @@ export class ProductsComponent implements OnInit, OnChanges {
   dateNow: Date = new Date();
 
   ngOnInit(): void {
-    this.proListOfCat = this.ProService.getProductByCatId(this.recivedSelCatId);
+    // this.proListOfCat = this.ProService.getAllProducts();
+    this.APITestProduct.getAllProducts().subscribe((prdList => {
+      this.prdList = prdList ;
+    }));
   }
 
   openProductDetails(Id: number) {
