@@ -15,8 +15,8 @@ export class HomeComponent{
   age = 11;
 
   product : IProduct[] =[
-    {Id : 1 , Name : 'p1' , Price : 20 ,Quantity : 5 , categoryId : 1 , imgUrl :""},
-    {Id : 2 , Name : 'p2' , Price : 20 ,Quantity : 5, categoryId : 1 , imgUrl :""}
+    {id : 1 , Name : 'p1' , Price : 20 ,Quantity : 5 , categoryId : 1 , imgUrl :""},
+    {id : 2 , Name : 'p2' , Price : 20 ,Quantity : 5, categoryId : 1 , imgUrl :""}
   ]
 
   public count = Discount.NoDiscount ;

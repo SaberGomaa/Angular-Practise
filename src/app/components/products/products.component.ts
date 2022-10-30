@@ -14,11 +14,11 @@ import { Observable } from 'rxjs';
 export class ProductsComponent implements OnInit, OnChanges {
 
   productTrackBy(index: number, item: IProduct) {
-    return item.Id;
+    return item.id;
   }
 
   //proList: IProduct[];
-  proListOfCat: IProduct[] = [];
+  // proListOfCat: IProduct[] = [];
 
   prdList: IProduct[] = [];
 
@@ -28,14 +28,20 @@ export class ProductsComponent implements OnInit, OnChanges {
 
   orderTotalPrice: number = 0;
 
-  constructor(private ProService: ProductsService, private router: Router,
+  constructor(
+    //private ProService: ProductsService,
+    private router: Router,
     private APITestProduct: ProductsAPIService) {
     this.onTotalPriceChange = new EventEmitter<number>();
 
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.recivedSelCatId);
-    this.proListOfCat = this.ProService.getProductByCatId(this.recivedSelCatId);
+    // console.log(this.recivedSelCatId);
+    // this.proListOfCat = this.ProService.getProductByCatId(this.recivedSelCatId);
+    this.APITestProduct.getProductByCatID(this.recivedSelCatId).subscribe((prdList) => {
+      this.prdList = prdList;
+    }
+    )
   }
 
   updateOrderTotalPrice(amount: number, Quantity: number) {
@@ -54,14 +60,14 @@ export class ProductsComponent implements OnInit, OnChanges {
     // }));
 
     this.APITestProduct.getAllProducts().subscribe({
-      next : (data) => {
-        this.prdList = data ;
+      next: (data) => {
+        this.prdList = data;
       }
     })
   }
 
-  openProductDetails(Id: number) {
-    this.router.navigate(['/Products', Id]);
+  openProductDetails(id: number) {
+    this.router.navigate(['/Products', id]);
   }
 
 }

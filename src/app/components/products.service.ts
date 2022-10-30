@@ -10,12 +10,12 @@ export class ProductsService {
 
     constructor() {
         this.proList = [
-            { Id: 1, Name: 'MacBook', Price: 450, Quantity: 5, categoryId: 1, imgUrl: "https://avatars.githubusercontent.com/u/75697438?v=4" },
-            { Id: 2, Name: 'LabDell', Price: 520, Quantity: 2, categoryId: 1, imgUrl: "https://avatars.githubusercontent.com/u/75697438?v=4" },
-            { Id: 10, Name: 'OPPO', Price: 20, Quantity: 1, categoryId: 2, imgUrl: "https://avatars.githubusercontent.com/u/75697438?v=4" },
-            { Id: 45, Name: 'Realme', Price: 80, Quantity: 12, categoryId: 2, imgUrl: "https://avatars.githubusercontent.com/u/75697438?v=4" },
-            { Id: 20, Name: 'LG TV', Price: 120, Quantity: 10, categoryId: 3, imgUrl: "https://avatars.githubusercontent.com/u/75697438?v=4" },
-            { Id: 41, Name: 'Samsung TV ', Price: 210, Quantity: 5, categoryId: 3, imgUrl: "https://avatars.githubusercontent.com/u/75697438?v=4" }
+            { id: 1, Name: 'MacBook', Price: 450, Quantity: 5, categoryId: 1, imgUrl: "https://avatars.githubusercontent.com/u/75697438?v=4" },
+            { id: 2, Name: 'LabDell', Price: 520, Quantity: 2, categoryId: 1, imgUrl: "https://avatars.githubusercontent.com/u/75697438?v=4" },
+            { id: 10, Name: 'OPPO', Price: 20, Quantity: 1, categoryId: 2, imgUrl: "https://avatars.githubusercontent.com/u/75697438?v=4" },
+            { id: 45, Name: 'Realme', Price: 80, Quantity: 12, categoryId: 2, imgUrl: "https://avatars.githubusercontent.com/u/75697438?v=4" },
+            { id: 20, Name: 'LG TV', Price: 120, Quantity: 10, categoryId: 3, imgUrl: "https://avatars.githubusercontent.com/u/75697438?v=4" },
+            { id: 41, Name: 'Samsung TV ', Price: 210, Quantity: 5, categoryId: 3, imgUrl: "https://avatars.githubusercontent.com/u/75697438?v=4" }
         ];
     }
 
@@ -33,7 +33,7 @@ export class ProductsService {
     }
 
     getProductById(Id: number): IProduct | undefined {
-        return this.proList.find(p => p.Id == Id);
+        return this.proList.find(p => p.id == Id);
     }
 
     addNewProduct(Product: IProduct): void {
@@ -41,7 +41,7 @@ export class ProductsService {
     }
 
     getAllProducsIDs(): number[] {
-        return this.proList.map(p => p.Id);
+        return this.proList.map(p => p.id);
     }
 
 }
