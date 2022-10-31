@@ -1,17 +1,25 @@
-<form>
+<form (ngSubmit)="saveProduct()">
     <div class="mb-3">
         <label for="" class="form-label">Product Name</label>
-        <input type="text" class="form-control" name="Name" placeholder="Name" required minlength="3">
+        <input type="text" class="form-control" name="Name" placeholder="Name" [(ngModel)]="newProduct.Name" required
+            minlength="3">
         <label for="" class="form-label">Price</label>
-        <input type="text" class="form-control" name="Price" placeholder="Price" required min="10">
+        <input type="text" class="form-control" name="Price" placeholder="Price" required min="10"
+            [(ngModel)]="newProduct.Price">
         <label for="" class="form-label">Quantity</label>
-        <input type="text" class="form-control" name="Quantity" placeholder="Quantity" required min="1">
+        <input type="text" class="form-control" name="Quantity" placeholder="Quantity" required min="1"
+            [(ngModel)]="newProduct.Quantity">
         <label for="" class="form-label">Image</label>
-        <input type="text" class="form-control" name="imgUrl" required>
+        <input type="file" required name="img" class="form-control" [(ngModel)]="newProduct.imgUrl">
         <label for="" class="form-label">Category</label>
-        <!-- <select class="form-select form-select-lg" name="cat" id="catSel" [(ngModel)]="selectedCatId">
-            <option *ngFor="let cat of catList" [value]="cat.Id">{{cat.name}}</option> -->
-        <!-- </select> -->
-        <input type="submit" class="btn btn-primary" value="Add" (click)="saveProduct()" />
+        <select class="form-select form-select-lg" name="cat" id="catSel" [(ngModel)]="newProduct.categoryId">
+            <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option> -->
+        </select>
+        <input type="submit" class="btn btn-primary mt-3" value="Add" />
     </div>
 </form>
+<!-- <div>
+    <h2>
+        New Product = {{newProduct | json}}
+    </h2>
+</div> -->
