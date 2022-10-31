@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  baseAddressForAPI : 'http://localhost:3000'
+
 };
 
 /*

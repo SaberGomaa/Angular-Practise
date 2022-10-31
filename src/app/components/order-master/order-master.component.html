@@ -7,7 +7,7 @@
 <div class="mb-3">
     <select class="form-select form-select-lg" name="cat" id="catSel" [(ngModel)]="selectedCatId">
         <option selected     value="0">Select Category</option>
-        <option *ngFor="let cat of catList" [value]="cat.Id">{{cat.name}}</option>
+        <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option>
     </select>
 </div>
 <hr />

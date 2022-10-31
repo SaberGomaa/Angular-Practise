@@ -32,9 +32,9 @@ export class OrderMasterComponent implements OnInit , AfterViewInit {
 
   constructor() {
     this.catList = [
-      { Id: 1, name: 'Labtobs' },
-      { Id: 2, name: 'Mobiles' },
-      { Id: 3, name: 'TVs' }
+      { id: 1, name: 'Labtobs' },
+      { id: 2, name: 'Mobiles' },
+      { id: 3, name: 'TVs' }
     ];
     //  this.clientNameInp?.nativeElement // Must Allow null if used null or undefined '?'
 
