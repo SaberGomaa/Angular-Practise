@@ -1,4 +1,4 @@
-<form (ngSubmit)="saveProduct()">
+<form #prdForm="ngForm" (ngSubmit)="saveProduct()">
    <div class="mb-3">
       <div>
          <label for="" class="form-label">Product Name</label>
@@ -33,7 +33,7 @@
       <div>
          <label for="" class="form-label">Image</label>
          <input type="file" #prdImg="ngModel" [class.is-valid]="prdImg.valid"
-            [class.is-invalid]="prdImg.invalid && quantity.touched" required name="img" class="form-control"
+            [class.is-invalid]="prdImg.invalid && prdImg.touched" required name="img" class="form-control"
             [(ngModel)]="newProduct.imgUrl">
          <div [hidden]="prdImg.valid ||prdImg.untouched">
             <small class="text-danger">Product Image is Required</small>
@@ -41,11 +41,13 @@
       </div>
       <label for="" class="form-label">Category</label>
       <div>
-         <select class="form-select form-select-lg" name="cat" id="catSel" [(ngModel)]="newProduct.categoryId">
+         <select class="form-select form-select-lg" name="cat" id="catSel" [(ngModel)]="newProduct.categoryId"
+            #prdCat="ngModel" [class.is-valid]="prdCat.valid" [class.is-invalid]="prdCat.invalid && prdCat.touched"
+            required>
             <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option>
          </select>
       </div>
-      <input type="submit" class="btn btn-primary mt-3" value="Add" />
+      <input type="submit" [disabled]="prdForm.invalid" class="btn btn-primary mt-3" value="Add" />
    </div>
 </form>
 
