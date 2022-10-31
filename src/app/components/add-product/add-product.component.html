@@ -1,22 +1,47 @@
 <form (ngSubmit)="saveProduct()">
     <div class="mb-3">
-        <label for="" class="form-label">Product Name</label>
-        <input type="text" #prdName="ngModel" class="form-control" name="Name" placeholder="Name"
-            [(ngModel)]="newProduct.Name" required [class.is-valid]="prdName.valid"
-            [class.is-invalid]="prdName.invalid && prdName.touched" minlength="3">
-        <label for="" class="form-label">Price</label>
-        <input type="number" #price="ngModel" class="form-control" name="Price" [class.is-valid]="price.valid"
-            [class.is-invalid]="price.invalid&& price.touched" placeholder="Price" required min="10" [(ngModel)]="newProduct.Price">
-        <label for="" class="form-label">Quantity</label>
-        <input type="number" class="form-control" #quantity="ngModel" [class.is-valid]="quantity.valid"
-            [class.is-invalid]="quantity.invalid && quantity.touched" name="Quantity" placeholder="Quantity" required min="1"
-            [(ngModel)]="newProduct.Quantity">
-        <label for="" class="form-label">Image</label>
-        <input type="file" required name="img" class="form-control" [(ngModel)]="newProduct.imgUrl">
+        <div>
+            <label for="" class="form-label">Product Name</label>
+            <input type="text" #prdName="ngModel" class="form-control" name="Name" placeholder="Name"
+                [(ngModel)]="newProduct.Name" required [class.is-valid]="prdName.valid"
+                [class.is-invalid]="prdName.invalid && prdName.touched" minlength="3">
+            <div [hidden]="prdName.valid ||prdName.untouched">
+                <small class="text-danger">Product Name is Required</small>
+            </div>
+        </div>
+        <div>
+            <label for="" class="form-label">Price</label>
+            <input type="number" #price="ngModel" class="form-control" name="Price" [class.is-valid]="price.valid"
+                [class.is-invalid]="price.invalid&& price.touched" placeholder="Price" required min="10"
+                [(ngModel)]="newProduct.Price">
+            <div [hidden]="price.valid ||price.untouched">
+                <small class="text-danger">Product Price is Required</small>
+            </div>
+        </div>
+        <div>
+            <label for="" class="form-label">Quantity</label>
+            <input type="number" class="form-control" #quantity="ngModel" [class.is-valid]="quantity.valid"
+                [class.is-invalid]="quantity.invalid && quantity.touched" name="Quantity" placeholder="Quantity"
+                required min="1" [(ngModel)]="newProduct.Quantity">
+            <div [hidden]="quantity.valid ||quantity.untouched">
+                <small class="text-danger">Product Quantity is Required</small>
+            </div>
+        </div>
+        <div>
+            <label for="" class="form-label">Image</label>
+            <input type="file" #prdImg="ngModel" [class.is-valid]="prdImg.valid"
+                [class.is-invalid]="prdImg.invalid && quantity.touched" required name="img" class="form-control"
+                [(ngModel)]="newProduct.imgUrl">
+            <div [hidden]="prdImg.valid ||prdImg.untouched">
+                <small class="text-danger">Product Image is Required</small>
+            </div>
+        </div>
         <label for="" class="form-label">Category</label>
-        <select class="form-select form-select-lg" name="cat" id="catSel" [(ngModel)]="newProduct.categoryId">
-            <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option> -->
-        </select>
+        <div>
+            <select class="form-select form-select-lg" name="cat" id="catSel" [(ngModel)]="newProduct.categoryId">
+                <option *ngFor="let cat of catList" [value]="cat.id">{{cat.name}}</option> -->
+            </select>
+        </div>
         <input type="submit" class="btn btn-primary mt-3" value="Add" />
     </div>
 </form>
