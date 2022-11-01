@@ -39,9 +39,13 @@
                   name="uPostalCode" id="uPostalCode">
             </div>
          </div>
-         <div>
-            <label class="form-label" for="uMobile" class="form-label">Mobile</label>
-            <input class="form-control" type="text" formControlName="mobile" name="uMobile" id="uMobile">
+         <div formArrayName="mobile">
+            <div *ngFor="let m of moblie.controls ; let i = index">
+               <label class="form-label" for="uMobile{{i}}" class="form-label">Mobile {{i+1}}</label>
+               <input class="form-control" type="text" [formControlName]="i" name="uMobile{{i}}" id="uMobile{{i}}">
+            </div>
+            <button class="btn btn-secondary  mt-3" (click)="addMobile()">+</button>
+            <!-- <button class="btn btn-secondary  mt-3" (click)="popMobile()">-</button> -->
          </div>
          <div>
             <label class="form-label">How did you find us ?</label>
@@ -56,7 +60,7 @@
                <label class="btn btn-outline-primary" for="other">Other</label>
             </div>
          </div>
-         <div>
+         <div [hidden]="reachedBy.value!='other'">
             <label class="form-label" for="reachedByOther" class="form-label">Please Write Other</label>
             <input class="form-control" type="text" formControlName="reachedByOther" name="reachedByOther"
                id="reachedByOther">
@@ -70,7 +74,8 @@
             <input class="form-control" type="password" formControlName="confirmPassword" name="uPasswordConfirm"
                id="uPasswordConfirm">
          </div>
-         <input type="submit" class="btn btn-primary mt-3" value="Register" />
+         <input type="submit" [disabled]="UserRegisterFormGroup.invalid" class="btn btn-primary mt-3 " style="margin-right: 10px;" value="Register" />
+         <!-- <button class="btn btn-primary  mt-3" (click)="resetValues()">Clear</button> -->
       </div>
    </div>
 </form>

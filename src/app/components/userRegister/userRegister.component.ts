@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
    selector: 'app-userRegister',
@@ -29,7 +29,9 @@ export class UserRegisterComponent implements OnInit {
       this.UserRegisterFormGroup = FB.group({
          name: ['', [Validators.required, Validators.minLength(10)]],
          email: ['', [Validators.email, Validators.required]],
-         mobile: [''],
+         mobile: FB.array([
+            FB.control('')
+         ]),
          address: FB.group({
             street: [''],
             postalCode: [''],
@@ -64,17 +66,17 @@ export class UserRegisterComponent implements OnInit {
       // });
 
 
-      this.UserRegisterFormGroup.patchValue({ // can take some properties value
-         "name": "sabergomaa",
-         "email": "sabergomaa261@gmail.com",
-         "mobile": "01145595276",
-         "address": {
-            "street": "EGYPT",
-            "postalCode": "11548451"
-         },
-         "reachedBy": "FB", 
-         "reachedByOther": ""
-      });
+      // this.UserRegisterFormGroup.patchValue({ // can take some properties value
+      //    "name": "sabergomaa",
+      //    "email": "sabergomaa261@gmail.com",
+      //    "mobile": ['010955484'],
+      //    "address": {
+      //       "street": "EGYPT",
+      //       "postalCode": "11548451"
+      //    },
+      //    "reachedBy": "FB",
+      //    "reachedByOther": ""
+      // });
 
 
    }
@@ -83,12 +85,30 @@ export class UserRegisterComponent implements OnInit {
    get name() {
       return this.UserRegisterFormGroup.controls['name'];
    }
-
+   get reachedBy() {
+      return this.UserRegisterFormGroup.controls['reachedBy'];
+   }
    get email() {
       return this.UserRegisterFormGroup.controls['email'];
+
+   }
+
+   get moblie() {
+      return this.UserRegisterFormGroup.controls['mobile'] as FormArray;
    }
    register() {
       // call API send {UserRegisterFormGroup.value};
+   }
+
+   resetValues() {
+      this.UserRegisterFormGroup.controls['name'].reset();
+   }
+
+   addMobile() {
+      this.moblie.push(this.FB.control(''))
+   }
+   popMobile() {
+      this.moblie.removeAt(1);
    }
 
 }

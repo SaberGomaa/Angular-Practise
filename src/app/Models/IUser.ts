@@ -1,7 +1,7 @@
 export interface IUser {
     name: string;
     email: string;
-    mobile: string;
+    mobile: string[];
     address: {
         street: string,
         postalCode: string
