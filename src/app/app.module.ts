@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +17,7 @@ import { OrderMasterComponent } from './components/order-master/order-master.com
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { ProductDetailsComponent } from './components/ProductDetails/ProductDetails.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
-
+import { UserRegisterComponent } from './components/userRegister/userRegister.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,14 +33,14 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     MainLayoutComponent,
     ProductDetailsComponent,
     AddProductComponent,
-    
+    UserRegisterComponent
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

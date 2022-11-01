@@ -1,49 +1,50 @@
-<form>
+<form [formGroup]="UserRegisterFormGroup">
    <div class="mb-3">
       <div>
          <label for="uName" class="form-label">User Name</label>
-         <input type="text" name="uName" id="uName" required>
+         <input type="text" formControlName="name" name="uName" id="uName" required>
       </div>
       <div>
          <label for="uEmail" class="form-label">Email</label>
-         <input type="text" name="uEmail" id="uEmail" required>
+         <input type="text" formControlName="email" name="uEmail" id="uEmail" required>
       </div>
-      <div>
+      <div formGroupName="address">
          <div>
             <label for="uStreet" class="form-label">Street</label>
-            <input type="text" name="uStreet" id="uStreet" required>
+            <input type="text" formControlName="street" name="uStreet" id="uStreet" required>
          </div>
          <div>
             <label for="uPostalCode" class="form-label">Postal Code</label>
-            <input type="text" name="uPostalCode" id="uPostalCode" required>
+            <input type="text" formControlName="postalCode" name="uPostalCode" id="uPostalCode" required>
          </div>
       </div>
       <div>
          <label for="uMobile" class="form-label">Mobile</label>
-         <input type="text" name="uMobile" id="uMobile" required>
+         <input type="text" formControlName="mobile" name="uMobile" id="uMobile" required>
       </div>
       <div>
          <label class="form-label">How did you find us ?</label>
          <div class="btn-group" role="group">
-            <input type="radio" class="btn-check" name="reachedBy" id="fb">
+            <input type="radio" formControlName="reachedBy" class="btn-check" name="reachedBy" id="fb">
             <label class="btn btn-outline-primary" for="fb">FaceBook</label>
-            <input type="radio" class="btn-check" name="reachedBy" id="Linkedin">
+            <input type="radio" formControlName="reachedBy" class="btn-check" name="reachedBy" id="Linkedin">
             <label class="btn btn-outline-primary" for="Linkedin">Linkedin</label>
-            <input type="radio" class="btn-check" name="reachedBy" id="other">
+            <input type="radio" formControlName="reachedBy" class="btn-check" name="reachedBy" id="other">
             <label class="btn btn-outline-primary" for="other">Other</label>
          </div>
       </div>
       <div>
          <label for="reachedByOther" class="form-label">Please Write Other</label>
-         <input type="text" name="reachedByOther" id="reachedByOther" required>
+         <input type="text" formControlName="reachedByOther" name="reachedByOther" id="reachedByOther" required>
       </div>
       <div>
          <label for="uPassword" class="form-label">Password</label>
-         <input type="password" name="uPassword" id="uPassword" required>
+         <input type="password" formControlName="password" name="uPassword" id="uPassword" required>
       </div>
       <div>
          <label for="uPasswordConfirm" class="form-label">Confirm Password</label>
-         <input type="password" name="uPasswordConfirm" id="uPasswordConfirm" required>
+         <input type="password" formControlName="confirmPassword" name="uPasswordConfirm" id="uPasswordConfirm"
+            required>
       </div>
       <input type="submit" class="btn btn-primary mt-3" value="Add" />
    </div>
