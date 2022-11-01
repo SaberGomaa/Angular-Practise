@@ -7,6 +7,6 @@ export interface IUser {
         postalCode: string
     };
     password: string;
-    referredBy: string;
-    referredByOther?: string;
+    reachedBy: string;
+    reachedByOther?: string;
 }
