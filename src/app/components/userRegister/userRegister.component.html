@@ -50,13 +50,14 @@
          <div>
             <label class="form-label">How did you find us ?</label>
             <div class="btn-group m-3" role="group">
-               <input type="radio" formControlName="reachedBy" value="FB" class="btn-check" name="reachedBy" id="fb">
+               <input type="radio" formControlName="reachedBy" value="FB" class="btn-check" (change)="addValidators()"
+                  name="reachedBy" id="fb">
                <label class="btn btn-outline-primary" for="fb">FaceBook</label>
-               <input type="radio" formControlName="reachedBy" value="Linkedin" class="btn-check" name="reachedBy"
-                  id="Linkedin">
+               <input type="radio" formControlName="reachedBy" value="Linkedin" class="btn-check"
+                  (change)="addValidators()" name="reachedBy" id="Linkedin">
                <label class="btn btn-outline-primary" for="Linkedin">Linkedin</label>
-               <input type="radio" formControlName="reachedBy" value="other" class="btn-check" name="reachedBy"
-                  id="other">
+               <input type="radio" formControlName="reachedBy" value="other" class="btn-check"
+                  (change)="addValidators()" name="reachedBy" id="other">
                <label class="btn btn-outline-primary" for="other">Other</label>
             </div>
          </div>
@@ -74,7 +75,8 @@
             <input class="form-control" type="password" formControlName="confirmPassword" name="uPasswordConfirm"
                id="uPasswordConfirm">
          </div>
-         <input type="submit" [disabled]="UserRegisterFormGroup.invalid" class="btn btn-primary mt-3 " style="margin-right: 10px;" value="Register" />
+         <input type="submit" [disabled]="UserRegisterFormGroup.invalid" class="btn btn-primary mt-3 "
+            style="margin-right: 10px;" value="Register" />
          <!-- <button class="btn btn-primary  mt-3" (click)="resetValues()">Clear</button> -->
       </div>
    </div>

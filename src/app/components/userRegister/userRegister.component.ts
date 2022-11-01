@@ -111,4 +111,13 @@ export class UserRegisterComponent implements OnInit {
       this.moblie.removeAt(1);
    }
 
+   addValidators() {
+      if (this.reachedBy.value == 'other') {
+         this.UserRegisterFormGroup.controls['reachedByOther'].setValidators([Validators.required]);
+      }
+      else {
+         this.UserRegisterFormGroup.controls['reachedByOther'].clearValidators();
+      }
+      this.UserRegisterFormGroup.controls['reachedByOther'].updateValueAndValidity();
+   }
 }
