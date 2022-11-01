@@ -7,6 +7,7 @@ import { NotFoundComponent } from './components/NotFound/NotFound.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 import { ProductDetailsComponent } from './components/ProductDetails/ProductDetails.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { UserRegisterComponent } from './components/userRegister/userRegister.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
 
     ]
   },
+  { path: 'Register', component: UserRegisterComponent },
 
   // Wild-card path
   { path: '**', component: NotFoundComponent },

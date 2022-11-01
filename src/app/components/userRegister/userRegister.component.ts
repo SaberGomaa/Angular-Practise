@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
    selector: 'app-userRegister',
@@ -13,7 +13,7 @@ export class UserRegisterComponent implements OnInit {
 
    constructor() {
       this.UserRegisterFormGroup = new FormGroup({
-         name: new FormControl(''),
+         name: new FormControl('', [Validators.required, Validators.minLength(10)]),
          email: new FormControl(''),
          mobile: new FormControl(''),
          address: new FormGroup({
@@ -29,6 +29,14 @@ export class UserRegisterComponent implements OnInit {
    }
 
    ngOnInit() {
+   }
+
+   get name(){
+      return this.UserRegisterFormGroup.controls['name'];
+   }
+
+   register() {
+
    }
 
 }
