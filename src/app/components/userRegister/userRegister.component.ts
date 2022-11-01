@@ -49,19 +49,33 @@ export class UserRegisterComponent implements OnInit {
       else show empty Form to register
       */
 
-      this.UserRegisterFormGroup.setValue({
+      // this.UserRegisterFormGroup.setValue({ // Must Set values For all properties
+      //    "name": "sabergomaa",
+      //    "email": "sabergomaa261@gmail.com",
+      //    "mobile": "01145595276",
+      //    "address": {
+      //       "street": "EGYPT",
+      //       "postalCode": "1151"
+      //    },
+      //    "password": "",
+      //    "confirmPassword": "",
+      //    "reachedBy": "FB", 
+      //    "reachedByOther": "NaN"
+      // });
+
+
+      this.UserRegisterFormGroup.patchValue({ // can take some properties value
          "name": "sabergomaa",
          "email": "sabergomaa261@gmail.com",
          "mobile": "01145595276",
          "address": {
             "street": "EGYPT",
-            "postalCode": "1151"
+            "postalCode": "11548451"
          },
-         "password": "",
-         "confirmPassword": "",
          "reachedBy": "FB", 
-         "reachedByOther": "NaN"
+         "reachedByOther": ""
       });
+
 
    }
 
