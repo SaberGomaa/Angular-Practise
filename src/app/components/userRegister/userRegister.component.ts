@@ -14,7 +14,7 @@ export class UserRegisterComponent implements OnInit {
    constructor() {
       this.UserRegisterFormGroup = new FormGroup({
          name: new FormControl('', [Validators.required, Validators.minLength(10)]),
-         email: new FormControl(''),
+         email: new FormControl('', [Validators.email, Validators.required]),
          mobile: new FormControl(''),
          address: new FormGroup({
             street: new FormControl(''),
@@ -31,10 +31,14 @@ export class UserRegisterComponent implements OnInit {
    ngOnInit() {
    }
 
-   get name(){
+
+   get name() {
       return this.UserRegisterFormGroup.controls['name'];
    }
 
+   get email() {
+      return this.UserRegisterFormGroup.controls['email'];
+   }
    register() {
 
    }

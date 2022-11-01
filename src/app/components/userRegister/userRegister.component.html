@@ -6,10 +6,27 @@
             <label class="form-label" for="uName" class="form-label">User Name</label>
             <input class="form-control" [class.is-valid]="name.valid" [class.is-invalid]="name.invalid&& name.touched"
                type="text" formControlName="name" name="uName" id="uName">
+            <div [hidden]="name.valid ||name.untouched">
+               <small class="text-danger d-block" *ngIf="(name.errors?.['required'])">
+                  User Name is Required
+               </small>
+               <small class="text-danger d-block" *ngIf="(name.errors?.['minlength'])">
+                  User Name Min Length 10 Char
+               </small>
+            </div>
          </div>
          <div>
             <label class="form-label" for="uEmail" class="form-label">Email</label>
-            <input class="form-control" type="text" formControlName="email" name="uEmail" id="uEmail">
+            <input class="form-control" type="text" [class.is-valid]="email.valid"
+               [class.is-invalid]="email.invalid && email.touched" formControlName="email" name="uEmail" id="uEmail">
+            <div [hidden]="email.valid ||email.untouched">
+               <small class="text-danger d-block" *ngIf="(email.errors?.['required'])">
+                  Email is Required
+               </small>
+               <small class="text-danger d-block" *ngIf="(email.errors?.['email'])">
+                  Not Valid Email
+               </small>
+            </div>
          </div>
          <div formGroupName="address">
             <div>
