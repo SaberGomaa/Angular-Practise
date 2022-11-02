@@ -13,8 +13,8 @@
                <small class="text-danger d-block" *ngIf="(name.errors?.['minlength'])">
                   User Name Min Length 3 Char
                </small>
-               <small class="text-danger d-block" *ngIf="(name.errors?.['forbiddenNameValidator'])">
-                  Not Valid Name  
+               <small class="text-danger d-block" *ngIf="(name.errors?.['forbiddenName'])">
+                  User Name can't be {{name.errors?.['forbiddenName']?.value}}
                </small>
             </div>
          </div>
