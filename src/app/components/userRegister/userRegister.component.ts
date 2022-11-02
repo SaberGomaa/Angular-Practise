@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
    selector: 'app-userRegister',
@@ -27,7 +27,7 @@ export class UserRegisterComponent implements OnInit {
       // });
 
       this.UserRegisterFormGroup = FB.group({
-         name: ['', [Validators.required, Validators.minLength(10)]],
+         name: ['', [Validators.required, Validators.minLength(3)], this.forbiddenNameValidator(/(admin)|(user)/)],
          email: ['', [Validators.email, Validators.required]],
          mobile: FB.array([
             FB.control('')
@@ -120,4 +120,12 @@ export class UserRegisterComponent implements OnInit {
       }
       this.UserRegisterFormGroup.controls['reachedByOther'].updateValueAndValidity();
    }
+
+   forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
+      return (control: AbstractControl): ValidationErrors | null => {
+         const forbidden = nameRe.test(control.value);
+         return forbidden ? { forbidden: { value: control.value } } : null;
+      };
+   }
+
 }

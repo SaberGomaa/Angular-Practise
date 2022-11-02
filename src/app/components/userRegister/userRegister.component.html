@@ -11,7 +11,10 @@
                   User Name is Required
                </small>
                <small class="text-danger d-block" *ngIf="(name.errors?.['minlength'])">
-                  User Name Min Length 10 Char
+                  User Name Min Length 3 Char
+               </small>
+               <small class="text-danger d-block" *ngIf="(name.errors?.['forbiddenNameValidator'])">
+                  Not Valid Name  
                </small>
             </div>
          </div>
