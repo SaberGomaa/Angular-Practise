@@ -78,6 +78,11 @@
             <input class="form-control" type="password" formControlName="confirmPassword" name="uPasswordConfirm"
                id="uPasswordConfirm">
          </div>
+         <div
+            *ngIf="UserRegisterFormGroup.errors?.['PassMissMatch'] && (confirmPassword.touched || password.touched)"
+            class="cross-validation-error-message alert alert-danger">
+            Password Not Matched
+         </div>
          <input type="submit" [disabled]="UserRegisterFormGroup.invalid" class="btn btn-primary mt-3 "
             style="margin-right: 10px;" value="Register" />
          <!-- <button class="btn btn-primary  mt-3" (click)="resetValues()">Clear</button> -->
