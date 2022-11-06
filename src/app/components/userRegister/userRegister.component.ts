@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { forbiddenNameValidator } from 'src/app/Custom Validator/NameValidator';
+import { identityRevealedValidator } from 'src/app/Custom Validator/PasswordMatch';
 
 @Component({
    selector: 'app-userRegister',
@@ -42,7 +43,7 @@ export class UserRegisterComponent implements OnInit {
          confirmPassword: [''],
          reachedBy: [''],
          reachedByOther: [''],
-      });
+      },{ validators: identityRevealedValidator });
 
    }
 

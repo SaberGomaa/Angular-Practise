@@ -1,5 +1,8 @@
 import { ValidatorFn, AbstractControl, ValidationErrors } from "@angular/forms";
 
+
+// Factory Function
+
 // export function forbiddenNameValidator(nameRe: RegExp): ValidatorFn {
 //     return (control: AbstractControl): ValidationErrors | null => {
 //         const forbidden = nameRe.test(control.value);
