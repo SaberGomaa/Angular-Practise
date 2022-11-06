@@ -1,6 +1,8 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
-/** A hero's name can't match the hero's alter ego */
+
+// Cross filed custom validator
+
 export const passwordMatchValidator: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
     const pass = control.get('password');
     const confirmPass = control.get('confirmPassword');
