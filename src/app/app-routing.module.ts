@@ -14,6 +14,10 @@ const routes: Routes = [
   // First Match wins strategy
 
   {
+    path: 'User',
+    loadChildren: () => import('src/app/components/user/user.module').then(m => m.UserModule)
+  },
+  {
     path: '', component: MainLayoutComponent, children: [
       //Default path
       { path: '', redirectTo: '/Home', pathMatch: 'full' },
@@ -26,15 +30,14 @@ const routes: Routes = [
 
     ]
   },
-  { path: 'Register', component: UserRegisterComponent },
 
+  { path: 'Register', component: UserRegisterComponent },
   // Wild-card path
   { path: '**', component: NotFoundComponent },
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-exports: [RouterModule]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }
