@@ -12,11 +12,6 @@ import { UserRegisterComponent } from './components/userRegister/userRegister.co
 
 const routes: Routes = [
   // First Match wins strategy
-
-  {
-    path: 'User',
-    loadChildren: () => import('src/app/components/user/user.module').then(m => m.UserModule)
-  },
   {
     path: '', component: MainLayoutComponent, children: [
       //Default path
@@ -27,7 +22,10 @@ const routes: Routes = [
       { path: 'Products', component: ProductsComponent },
       { path: 'Products/:Id', component: ProductDetailsComponent },
       { path: 'Order', component: OrderMasterComponent },
-
+      {
+        path: 'User',
+        loadChildren: () => import('src/app/components/user/user.module').then(m => m.UserModule)
+      },
     ]
   },
 
